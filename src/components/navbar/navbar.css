@@ -1,0 +1,136 @@
+/* Custom class names for Navbar component */
+.custom-navbar-container {
+	background-color: #fff;
+	z-index: 4;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	align-items: center;
+	border-bottom: 1px solid #d1d5db;
+	position: fixed;
+	top: 0;
+	padding: 16px 80px;
+	box-sizing: border-box;
+}
+
+.custom-navbar-content {
+	display: flex;
+	gap: 1.25rem;
+	align-items: center;
+	justify-content: center;
+}
+
+/* logo */
+
+.custom-logo {
+	cursor: pointer;
+	transition: transform 0.3s ease-in-out;
+	display: flex;
+	align-items: center;
+	width: fit-content;
+}
+
+.custom-logo:hover {
+	scale: 1.1;
+}
+
+.custom-logo-image {
+	height: auto;
+	width: auto;
+	min-width: 128px;
+	max-width: 175px;
+}
+
+/* address and location link */
+
+.addressImage {
+	height: 24px;
+	width: 24px;
+}
+
+.custom-nav-links {
+	width: 100%;
+	display: flex;
+	gap: 1px;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: transform 0.3s ease-in-out;
+}
+
+.custom-nav-icon {
+	width: 6px;
+	height: 6px;
+}
+
+.custom-nav-link {
+	text-decoration: none;
+	font-size: 1rem;
+	font-weight: 600;
+	color: #000;
+	cursor: pointer;
+}
+
+/* Search  */
+
+.mainSearchContainer {
+	display: none;
+}
+
+.navLinksContainer {
+	display: flex;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	gap: 1rem;
+	justify-content: center;
+	align-items: center;
+	border-radius: 9999px;
+	border: 1px solid #d1d5db;
+}
+
+.navbarSearchButton {
+	padding: 0.5rem 1rem;
+	border-radius: 9999px;
+	outline-style: none;
+	color: #ffffff;
+	background: #03a9f4f0;
+	border: none;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.navbarSearchButton:hover {
+	scale: 1.1;
+}
+
+/* styling svg */
+
+.searchSvg,
+.arrowSvg {
+	width: 1rem;
+	height: 1rem;
+	outline: none;
+	border: none;
+}
+
+/* media queries */
+
+@media (min-width: 768px) {
+	.mainSearchContainer {
+		display: block;
+	}
+}
+
+@media (max-width: 1535px) {
+	.custom-nav-link,
+	.addressImage {
+		display: none;
+	}
+
+	.custom-navbar-container {
+		padding: 16px 20px;
+	}
+}

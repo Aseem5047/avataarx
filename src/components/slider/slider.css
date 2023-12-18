@@ -1,0 +1,243 @@
+/* styling the image carousel */
+
+.sliderContainer {
+	display: flex;
+	padding-top: 6rem;
+	flex-direction: column;
+	flex: 1 1 0%;
+	gap: 3rem;
+	align-items: center;
+	width: 100%;
+	overflow: clip;
+}
+
+.imageSlider {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.imageSliderReverse {
+	flex-direction: row-reverse !important;
+}
+
+/* styling individual image */
+
+.sliderImage {
+	object-fit: cover;
+	min-height: 250px;
+	border-radius: 0.75rem;
+	height: 100%;
+	width: 100%;
+	max-height: 250px;
+	cursor: grab;
+}
+
+.imageLoaded {
+	transition-property: all;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 500ms;
+	opacity: 1;
+}
+.imageNotLoaded {
+	opacity: 0 !important;
+}
+
+/* slide states */
+.previous,
+.next,
+.visible,
+.prevPrevious,
+.nextNext,
+.lastSlide,
+.firstSlide {
+	transform: var(--transform, none);
+	transition: all var(--transition-transform-duration, 1000ms) ease-in-out;
+}
+
+.previous,
+.next {
+	max-width: 50%;
+	height: 100%;
+	transform-origin: center;
+	scale: 1.25;
+	transition: all 1000ms linear;
+}
+
+.previous {
+	transform: translateX(-10%);
+}
+
+.next {
+	transform: translateX(10%);
+}
+
+.previous:hover,
+.next:hover {
+	transform: scale(1.1);
+}
+
+.visible {
+	scale: 1.5;
+	z-index: 2;
+	min-width: 35%;
+	height: 100%;
+	transform: translateX(0);
+	transition: all 1000ms linear;
+}
+
+.prevPrevious,
+.nextNext {
+	width: 30%;
+	height: 100%;
+	transition: all 1000ms linear;
+}
+
+.nextNext {
+	z-index: -1;
+}
+
+.prevPrevious:hover,
+.nextNext:hover {
+	scale: 1.1;
+}
+
+.lastSlide,
+.firstSlide {
+	width: 100%;
+	transition: all 1000ms linear;
+	z-index: 1;
+}
+
+.lastSlide:hover,
+.firstSlide:hover {
+	scale: 1.1;
+}
+
+.lastSlide {
+	transform: translateX(-10%);
+}
+
+.firstSlide {
+	transform: translateX(10%);
+}
+
+/* banner button */
+
+.left,
+.right,
+.normalLeft,
+.normalRight {
+	width: 1.5rem;
+	height: 1.5rem;
+	color: #ffffff;
+	border-radius: 9999px;
+}
+.left,
+.right {
+	z-index: 3;
+	padding: 0.75rem;
+	margin: 0px 0.5rem;
+	background: rgba(0, 0, 0, 0.623);
+	cursor: pointer;
+	position: absolute;
+}
+
+.normalLeft,
+.normalRight {
+	padding: 0.5rem;
+	background: #03a9f4f0;
+	display: block;
+}
+
+.left {
+	left: 1rem;
+}
+.right {
+	right: 1rem;
+}
+
+.left:hover,
+.right:hover,
+.normalLeft:hover,
+.normalRight:hover {
+	transform: scale(1.2);
+	cursor: pointer;
+}
+
+/* navigation dots */
+
+.navigationParentContainer {
+	display: flex;
+	padding: 1rem;
+	gap: 1rem;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-top: 2.5rem;
+}
+
+.navigationDotsContainer {
+	display: flex;
+	overflow-x: scroll;
+	padding: 1rem;
+	gap: 1rem;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+	max-width: 75%;
+}
+
+.navigationDot {
+	padding: 0.25rem 0.5rem;
+	border-radius: 1rem;
+	cursor: pointer;
+	outline: none;
+	border: none;
+}
+
+.navigationDot:hover {
+	transform: scale(1.4);
+}
+
+/* media queries */
+
+@media (max-width: 768px) {
+	.normalLeft,
+	.normalRight {
+		display: none;
+	}
+
+	.left,
+	.right {
+		padding: 0.5rem;
+	}
+}
+
+@media (min-width: 1024px) {
+	.left,
+	.right {
+		display: none;
+	}
+}
+
+@media (max-width: 1024px) {
+	.navigationDotsContainer {
+		justify-content: flex-start;
+	}
+	.prevPrevious,
+	.nextNext {
+		display: none;
+	}
+
+	.previous,
+	.next {
+		max-width: 22%;
+	}
+
+	.sliderImage {
+		min-height: 200px;
+	}
+}
