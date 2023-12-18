@@ -1,5 +1,7 @@
 # Avataar Assessment
 
+### This Version is based on pure Css
+
 ### Deployed Site -  [Avataar Assessment](https://avataarx.vercel.app)
 
 ## Requirement 1 - Dynamic Menu
@@ -15,21 +17,15 @@
 
 ### Based on the available space the carousel displays maximum 4 more banner images other than the current banner
 
-![image](https://github.com/Aseem5047/avataar/assets/80787027/5a7e4fc0-3e1b-47a1-8d5d-2577628d251b)
+![image](https://github.com/Aseem5047/avataarx/assets/80787027/99f58b5d-454b-4758-ab82-4eabc2740022)
 
-![image](https://github.com/Aseem5047/avataar/assets/80787027/e16143f0-c180-402e-a08a-dd1715da358c)
 
 ## Responsive UI
 
-![image](https://github.com/Aseem5047/avataar/assets/80787027/ab561e27-cdb5-4be2-8a6a-99d2a9bbdd85)
+![image](https://github.com/Aseem5047/avataarx/assets/80787027/27e111a6-722c-4c2f-acac-6112df225b3a)
 
 ![image](https://github.com/Aseem5047/avataar/assets/80787027/20501466-2ff5-4a6f-a1b5-af8cd793e265)
 
-## Extra Additions
-
-  * User Details Table along with Pagination
-
-![image](https://github.com/Aseem5047/avataar/assets/80787027/78036f6a-27cc-48e1-acce-25b200a37678)
 
 ## Tech Used
   * React Vite
