@@ -2,7 +2,7 @@
 
 ### This Version is based on pure Css
 
-### Deployed Site -  [Avataar Assessment](https://avataarx.vercel.app)
+### Deployed Site -  [Avataar Assessment](https://avataarxx.vercel.app/)
 
 ## Requirement 1 - Dynamic Menu
 
