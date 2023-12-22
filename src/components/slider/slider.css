@@ -27,13 +27,15 @@
 
 .sliderImage {
 	object-fit: cover;
-	min-height: 250px;
+	min-height: 275px;
 	border-radius: 0.75rem;
 	height: 100%;
 	width: 100%;
-	max-height: 250px;
+	max-height: 275px;
 	cursor: grab;
 }
+
+/* styles to handle image loading */
 
 .imageLoaded {
 	transition-property: all;
@@ -54,30 +56,10 @@
 .lastSlide,
 .firstSlide {
 	transform: var(--transform, none);
-	transition: all var(--transition-transform-duration, 1000ms) ease-in-out;
+	transition: all var(--transition-transform-duration, 1000ms) ease;
 }
 
-.previous,
-.next {
-	max-width: 50%;
-	height: 100%;
-	transform-origin: center;
-	scale: 1.25;
-	transition: all 1000ms linear;
-}
-
-.previous {
-	transform: translateX(-5%);
-}
-
-.next {
-	transform: translateX(5%);
-}
-
-.previous:hover,
-.next:hover {
-	transform: scale(1.1);
-}
+/* currently visible slide */
 
 .visible {
 	scale: 1.5;
@@ -85,37 +67,67 @@
 	min-width: 35%;
 	height: 100%;
 	transform: translateX(0);
-	transition: all 1000ms linear;
 }
+
+/* previous and next slides */
+
+.previous,
+.next {
+	max-width: 50%;
+	height: 100%;
+	transform-origin: center;
+	scale: 1.25;
+}
+
+.previous {
+	transform: translateX(-10%);
+}
+
+.next {
+	transform: translateX(10%);
+}
+
+.previous:hover {
+	transform: translateX(-5%) scale(1.1);
+}
+.next:hover {
+	transform: translateX(5%) scale(1.1);
+}
+
+/* prevPrevious and nextNext slides */
 
 .prevPrevious,
 .nextNext {
 	width: 30%;
 	height: 100%;
-	transition: all 1000ms linear;
+	z-index: 1;
 }
 
-/* .nextNext {
-	z-index: -1;
-} */
+.prevPrevious {
+	transform: translateX(-44%);
+}
+
+.nextNext {
+	transform: translateX(44%);
+}
 
 .prevPrevious:hover {
-	transform: translateX(-35%);
-	scale: 1.1;
-	/* transform: rotate3d(1, 2, 3, 10deg); */
+	transform: rotate3d(1, 2, 3, -4deg);
 }
 
 .nextNext:hover {
-	/* transform: translateX(35%); */
-	/* opacity: 75%; */
-	/* scale: 1.1; */
-	transform: rotate3d(1, 2, 3, 10deg);
+	transform: rotate3d(1, 2, 3, 4deg);
 }
+
+.hiddenNext {
+	z-index: -1 !important;
+}
+
+/* last and first slide */
 
 .lastSlide,
 .firstSlide {
 	width: 100%;
-	transition: all 1000ms linear;
 	z-index: 1;
 }
 

@@ -27,13 +27,13 @@ const Slider = ({ images, loading }) => {
 	}, [images, currentIndex]);
 
 	// Auto-advance the slider every 5000 milliseconds (5 seconds)
-	useEffect(() => {
-		const slider = setInterval(() => {
-			setCurrentIndex((prev) => (prev + 1 > lastIndex ? 0 : prev + 1));
-		}, 7500);
+	// useEffect(() => {
+	// 	const slider = setInterval(() => {
+	// 		setCurrentIndex((prev) => (prev + 1 > lastIndex ? 0 : prev + 1));
+	// 	}, 7500);
 
-		return () => clearInterval(slider);
-	}, [currentIndex, lastIndex]);
+	// 	return () => clearInterval(slider);
+	// }, [currentIndex, lastIndex]);
 
 	// Helper function to ensure the index is within bounds
 	const getImageIndex = (index) =>
@@ -46,7 +46,10 @@ const Slider = ({ images, loading }) => {
 		if (adjustedIndex === currentIndex - 2) return "prevPrevious";
 		if (currentIndex === lastIndex && adjustedIndex === 0) return "firstSlide";
 		if (adjustedIndex === currentIndex + 1) return "next";
-		if (adjustedIndex === currentIndex + 2) return "nextNext";
+		if (adjustedIndex === currentIndex + 2 && currentIndex !== 0)
+			return "nextNext";
+		if (adjustedIndex === currentIndex + 2 && currentIndex === 0)
+			return "nextNext hiddenNext";
 		if (currentIndex === 0 && adjustedIndex === lastIndex) return "lastSlide";
 		return "hidden";
 	};
