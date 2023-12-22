@@ -81,7 +81,7 @@
 .navLinkLower {
 	font-size: 0.9rem /* 16px */;
 	line-height: 1.5rem /* 24px */;
-	font-weight: 600;
+	font-weight: bold;
 }
 
 .navLinkSubContainer {
