@@ -88,10 +88,6 @@
 	transition: all 1000ms linear;
 }
 
-.visible:hover {
-	transform: rotate3d(1, 2, 1, 10deg);
-}
-
 .prevPrevious,
 .nextNext {
 	width: 30%;
