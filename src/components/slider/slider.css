@@ -67,11 +67,11 @@
 }
 
 .previous {
-	transform: translateX(-10%);
+	transform: translateX(-5%);
 }
 
 .next {
-	transform: translateX(10%);
+	transform: translateX(5%);
 }
 
 .previous:hover,
@@ -88,6 +88,10 @@
 	transition: all 1000ms linear;
 }
 
+.visible:hover {
+	transform: rotate3d(1, 2, 1, 10deg);
+}
+
 .prevPrevious,
 .nextNext {
 	width: 30%;
@@ -95,21 +99,21 @@
 	transition: all 1000ms linear;
 }
 
-.nextNext {
+/* .nextNext {
 	z-index: -1;
-}
+} */
 
-.prevPrevious:hover,
-.nextNext:hover {
+.prevPrevious:hover {
+	transform: translateX(-35%);
 	scale: 1.1;
+	/* transform: rotate3d(1, 2, 3, 10deg); */
 }
 
-.prevPrevious {
-	transform: translateX(-10%);
-}
-
-.nextNext {
-	transform: translateX(10%);
+.nextNext:hover {
+	/* transform: translateX(35%); */
+	/* opacity: 75%; */
+	/* scale: 1.1; */
+	transform: rotate3d(1, 2, 3, 10deg);
 }
 
 .lastSlide,

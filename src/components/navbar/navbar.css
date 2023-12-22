@@ -48,6 +48,11 @@
 	width: 24px;
 }
 
+.addressImage,
+.custom-nav-link:hover {
+	margin-right: 0.25rem;
+}
+
 .custom-nav-links {
 	width: 100%;
 	display: flex;
@@ -65,10 +70,11 @@
 
 .custom-nav-link {
 	text-decoration: none;
-	font-size: 1rem;
+	font-size: 0.9rem;
 	font-weight: 600;
 	color: #000;
 	cursor: pointer;
+	margin-top: 2.5px;
 }
 
 /* Search  */
