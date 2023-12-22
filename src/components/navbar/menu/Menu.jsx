@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import Options from "./Options";
 import "./menu.css";
@@ -6,10 +6,6 @@ import "./menu.css";
 const Menu = ({ toggleMenu, setToggleMenu, randomImage, downIcon, upIcon }) => {
 	const [toggleMoreMenu, setToggleMoreMenu] = useState(false);
 	const [menuItems, setMenuItems] = useState([]);
-
-	const maxVisibleItems = 5; // Maximum number of items visible before moving to "More"
-	const visibleItems = menuItems.slice(0, maxVisibleItems);
-	const hiddenItems = menuItems.slice(maxVisibleItems);
 
 	useEffect(() => {
 		// Update the menu items when the component mounts or when the window is resized
@@ -20,7 +16,7 @@ const Menu = ({ toggleMenu, setToggleMenu, randomImage, downIcon, upIcon }) => {
 		};
 	}, [toggleMoreMenu]);
 
-	const updateMenuItems = () => {
+	const updateMenuItems = useCallback(() => {
 		const windowWidth = window.innerWidth;
 		if (windowWidth < 1024) {
 			setMenuItems([
@@ -35,11 +31,11 @@ const Menu = ({ toggleMenu, setToggleMenu, randomImage, downIcon, upIcon }) => {
 					icon: toggleMoreMenu ? upIcon : downIcon,
 				},
 				{ label: "Your Prime+", onClick: () => setToggleMenu(false) },
-				{ label: "Account & Profile", onClick: () => setToggleMenu(false) },
 				{ label: "Features & Lists", onClick: () => setToggleMenu(false) },
+				{ label: "Account & Profile", onClick: () => setToggleMenu(false) },
 				{ label: "Address & Location", onClick: () => setToggleMenu(false) },
 			]);
-		} else if (windowWidth < 1536) {
+		} else if (windowWidth < 1256) {
 			setMenuItems([
 				{ label: "Authenticate", onClick: () => setToggleMenu(false) },
 				{ label: "Manage", onClick: () => setToggleMenu(false) },
@@ -55,6 +51,20 @@ const Menu = ({ toggleMenu, setToggleMenu, randomImage, downIcon, upIcon }) => {
 				{ label: "Account & Profile", onClick: () => setToggleMenu(false) },
 				{ label: "Address & Location", onClick: () => setToggleMenu(false) },
 			]);
+		} else if (windowWidth < 1536) {
+			setMenuItems([
+				{ label: "Authenticate", onClick: () => setToggleMenu(false) },
+				{ label: "Manage", onClick: () => setToggleMenu(false) },
+				{ label: "Help", onClick: () => setToggleMenu(false) },
+				{ label: "Log Out", onClick: () => setToggleMenu(false) },
+				{
+					label: "More Options",
+					onClick: () =>
+						setToggleMoreMenu((prevToggleMoreMenu) => !prevToggleMoreMenu),
+					icon: toggleMoreMenu ? upIcon : downIcon,
+				},
+				{ label: "Address & Location", onClick: () => setToggleMenu(false) },
+			]);
 		} else {
 			setMenuItems([
 				{ label: "Authenticate", onClick: () => setToggleMenu(false) },
@@ -63,7 +73,12 @@ const Menu = ({ toggleMenu, setToggleMenu, randomImage, downIcon, upIcon }) => {
 				{ label: "Log Out", onClick: () => setToggleMenu(false) },
 			]);
 		}
-	};
+	});
+
+	const maxVisibleItems = 5; // Maximum number of items visible before moving to "More"
+	const visibleItems = menuItems.slice(0, maxVisibleItems);
+	const hiddenItems = menuItems.slice(maxVisibleItems);
+
 	return (
 		<div className="menuContainer">
 			{/* when the menu is toggled */}

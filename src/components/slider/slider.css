@@ -247,10 +247,6 @@
 	.navigationDotsContainer {
 		justify-content: flex-start;
 	}
-	.prevPrevious,
-	.nextNext {
-		display: none;
-	}
 
 	.previous,
 	.next {
@@ -259,5 +255,12 @@
 
 	.sliderImage {
 		min-height: 200px;
+	}
+}
+
+@media (max-width: 1368px) {
+	.prevPrevious,
+	.nextNext {
+		display: none;
 	}
 }
