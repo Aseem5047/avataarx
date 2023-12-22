@@ -80,11 +80,11 @@
 }
 
 .previous {
-	transform: translateX(-10%);
+	transform: translateX(-7.5%);
 }
 
 .next {
-	transform: translateX(10%);
+	transform: translateX(7.5%);
 }
 
 .previous:hover {
