@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import Options from "./Options";
 import "./menu.css";
+import { GetMenuItems } from "../../../utils/GetMenuItems";
 
 const Menu = ({ toggleMenu, setToggleMenu, randomImage, downIcon, upIcon }) => {
 	const [toggleMoreMenu, setToggleMoreMenu] = useState(false);
@@ -14,66 +15,21 @@ const Menu = ({ toggleMenu, setToggleMenu, randomImage, downIcon, upIcon }) => {
 		return () => {
 			window.removeEventListener("resize", updateMenuItems);
 		};
-	}, [toggleMoreMenu]);
+	}, [toggleMoreMenu, window.innerWidth]);
 
 	const updateMenuItems = useCallback(() => {
 		const windowWidth = window.innerWidth;
-		if (windowWidth < 1024) {
-			setMenuItems([
-				{ label: "Authenticate", onClick: () => setToggleMenu(false) },
-				{ label: "Manage", onClick: () => setToggleMenu(false) },
-				{ label: "Help", onClick: () => setToggleMenu(false) },
-				{ label: "Log Out", onClick: () => setToggleMenu(false) },
-				{
-					label: "More Options",
-					onClick: () =>
-						setToggleMoreMenu((prevToggleMoreMenu) => !prevToggleMoreMenu),
-					icon: toggleMoreMenu ? upIcon : downIcon,
-				},
-				{ label: "Your Prime+", onClick: () => setToggleMenu(false) },
-				{ label: "Features & Lists", onClick: () => setToggleMenu(false) },
-				{ label: "Account & Profile", onClick: () => setToggleMenu(false) },
-				{ label: "Address & Location", onClick: () => setToggleMenu(false) },
-			]);
-		} else if (windowWidth < 1256) {
-			setMenuItems([
-				{ label: "Authenticate", onClick: () => setToggleMenu(false) },
-				{ label: "Manage", onClick: () => setToggleMenu(false) },
-				{ label: "Help", onClick: () => setToggleMenu(false) },
-				{ label: "Log Out", onClick: () => setToggleMenu(false) },
-				{
-					label: "More Options",
-					onClick: () =>
-						setToggleMoreMenu((prevToggleMoreMenu) => !prevToggleMoreMenu),
-					icon: toggleMoreMenu ? upIcon : downIcon,
-				},
-				{ label: "Your Prime+", onClick: () => setToggleMenu(false) },
-				{ label: "Account & Profile", onClick: () => setToggleMenu(false) },
-				{ label: "Address & Location", onClick: () => setToggleMenu(false) },
-			]);
-		} else if (windowWidth < 1536) {
-			setMenuItems([
-				{ label: "Authenticate", onClick: () => setToggleMenu(false) },
-				{ label: "Manage", onClick: () => setToggleMenu(false) },
-				{ label: "Help", onClick: () => setToggleMenu(false) },
-				{ label: "Log Out", onClick: () => setToggleMenu(false) },
-				{
-					label: "More Options",
-					onClick: () =>
-						setToggleMoreMenu((prevToggleMoreMenu) => !prevToggleMoreMenu),
-					icon: toggleMoreMenu ? upIcon : downIcon,
-				},
-				{ label: "Address & Location", onClick: () => setToggleMenu(false) },
-			]);
-		} else {
-			setMenuItems([
-				{ label: "Authenticate", onClick: () => setToggleMenu(false) },
-				{ label: "Manage", onClick: () => setToggleMenu(false) },
-				{ label: "Help", onClick: () => setToggleMenu(false) },
-				{ label: "Log Out", onClick: () => setToggleMenu(false) },
-			]);
-		}
-	});
+		setMenuItems(
+			GetMenuItems(
+				windowWidth,
+				setToggleMenu,
+				toggleMoreMenu,
+				setToggleMoreMenu,
+				upIcon,
+				downIcon
+			)
+		);
+	}, [toggleMoreMenu, window.innerWidth]);
 
 	const maxVisibleItems = 5; // Maximum number of items visible before moving to "More"
 	const visibleItems = menuItems.slice(0, maxVisibleItems);

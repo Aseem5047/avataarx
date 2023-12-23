@@ -27,7 +27,7 @@
 
 .sliderImage {
 	object-fit: cover;
-	min-height: 275px;
+	min-height: 250px;
 	border-radius: 0.75rem;
 	height: 100%;
 	width: 100%;
