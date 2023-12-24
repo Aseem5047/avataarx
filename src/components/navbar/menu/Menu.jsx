@@ -61,13 +61,11 @@ const Menu = ({ toggleMenu, setToggleMenu, randomImage, downIcon, upIcon }) => {
 							className="userImage"
 						/>
 					</Link>
-					<div className="navLinkContainer">
-						<Link to="/" className="hoverEffectText navLinkUpper">
+					<div className="navLinkContainer hoverEffectText">
+						<Link to="/" className=" navLinkUpper">
 							Hello Aseem
 						</Link>
-						<span className="navLinkLower hoverEffectText">
-							Features & Lists
-						</span>
+						<span className="navLinkLower ">Features & Lists</span>
 					</div>
 				</div>
 

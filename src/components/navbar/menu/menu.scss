@@ -97,6 +97,7 @@
 	font-size: 0.8rem /* 14px */;
 	line-height: 1.25rem /* 20px */;
 	text-decoration: none;
+	color: inherit;
 }
 
 .navLinkLower {
@@ -144,15 +145,16 @@
 
 .menuOptions {
 	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	position: absolute;
+	gap: 0.5rem;
 	right: 0;
 	top: 2.5rem;
 	width: 11rem;
 	z-index: 4;
 	padding: 1rem 1rem 0.5rem 1rem;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
 	border-radius: 0.5rem;
 	border: 1px solid #d1d5db;
 	font-weight: 400;
