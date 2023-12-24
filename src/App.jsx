@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/navbar/Navbar";
+import InitialLoading from "./components/shared/InitialLoading";
 
 function App() {
 	const [loading, setLoading] = useState(true);
@@ -14,14 +15,12 @@ function App() {
 
 	return (
 		<>
-			{loading ? (
-				<div className="custom-loading-screen">
-					<img
-						src="https://cdn.dribbble.com/users/1813781/screenshots/5597337/dribbble-girl-with-clock.gif"
-						alt=""
-						className="custom-loading-image"
-					/>
-				</div>
+			{!loading ? (
+				<InitialLoading
+					image={
+						"https://cdn.dribbble.com/users/1813781/screenshots/5597337/dribbble-girl-with-clock.gif"
+					}
+				/>
 			) : (
 				<div className="appContainer">
 					{/* Navbar component for navigation */}
