@@ -35,6 +35,13 @@
 	}
 }
 
+.alternate {
+	display: flex !important;
+	padding-bottom: 0.5rem;
+	margin-bottom: 0.5rem;
+	border-bottom: 1px dotted #d1d5db;
+}
+
 .userImageContainer {
 	display: flex;
 	align-items: center;

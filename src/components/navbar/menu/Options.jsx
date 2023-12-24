@@ -12,7 +12,7 @@ const Options = ({
 	return (
 		<>
 			<ul className="menuOptions" onMouseLeave={() => setToggleMenu(false)}>
-				<li className="userInfoContainer" style={{ marginBottom: "1rem" }}>
+				<li className="userInfoContainer alternate">
 					<Link to="/" className="userImageContainer">
 						<img
 							src={`/users/${randomImage}`}
