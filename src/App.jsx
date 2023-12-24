@@ -15,7 +15,7 @@ function App() {
 
 	return (
 		<>
-			{!loading ? (
+			{loading ? (
 				<InitialLoading
 					image={
 						"https://cdn.dribbble.com/users/1813781/screenshots/5597337/dribbble-girl-with-clock.gif"
