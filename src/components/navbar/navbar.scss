@@ -1,5 +1,5 @@
 /* Custom class names for Navbar component */
-.custom-navbar-container {
+.navbarContainer {
 	background-color: #fff;
 	z-index: 4;
 	display: flex;
@@ -11,9 +11,13 @@
 	top: 0;
 	padding: 16px 80px;
 	box-sizing: border-box;
+
+	@media (max-width: 1535px) {
+		padding: 16px 20px;
+	}
 }
 
-.custom-navbar-content {
+.navbarContent {
 	display: flex;
 	gap: 1.25rem;
 	align-items: center;
@@ -28,32 +32,22 @@
 	display: flex;
 	align-items: center;
 	width: fit-content;
-}
 
-.custom-logo:hover {
-	scale: 1.1;
-}
+	&:hover {
+		scale: 1.1;
+	}
 
-.custom-logo-image {
-	height: auto;
-	width: auto;
-	min-width: 128px;
-	max-width: 175px;
+	img {
+		height: auto;
+		width: auto;
+		min-width: 128px;
+		max-width: 175px;
+	}
 }
 
 /* address and location link */
 
-.addressImage {
-	height: 24px;
-	width: 24px;
-}
-
-.addressImage,
-.custom-nav-link:hover {
-	margin-right: 0.25rem;
-}
-
-.custom-nav-links {
+.navLinks {
 	width: 100%;
 	display: flex;
 	gap: 1px;
@@ -61,26 +55,39 @@
 	justify-content: center;
 	cursor: pointer;
 	transition: transform 0.3s ease-in-out;
+
+	svg {
+		height: 24px;
+		width: 24px;
+		margin-right: 0.25rem;
+	}
 }
 
-.custom-nav-icon {
-	width: 6px;
-	height: 6px;
-}
-
-.custom-nav-link {
+.navLink {
 	text-decoration: none;
 	font-size: 0.9rem;
-	font-weight: bold;
+	font-weight: normal;
 	color: #000;
 	cursor: pointer;
 	margin-top: 2.5px;
+
+	&:hover {
+		margin-right: 0.25rem;
+	}
+
+	@media (max-width: 1535px) {
+		display: none;
+	}
 }
 
 /* Search  */
 
 .mainSearchContainer {
 	display: none;
+
+	@media (min-width: 768px) {
+		display: block;
+	}
 }
 
 .navLinksContainer {
@@ -94,22 +101,22 @@
 	align-items: center;
 	border-radius: 9999px;
 	border: 1px solid #d1d5db;
-}
 
-.navbarSearchButton {
-	padding: 0.5rem 1rem;
-	border-radius: 9999px;
-	outline-style: none;
-	color: #ffffff;
-	background: #03a9f4f0;
-	border: none;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-}
+	button {
+		padding: 0.5rem 1rem;
+		border-radius: 9999px;
+		outline-style: none;
+		color: #ffffff;
+		background: #03a9f4f0;
+		border: none;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
 
-.navbarSearchButton:hover {
-	scale: 1.1;
+		&:hover {
+			scale: 1.1;
+		}
+	}
 }
 
 /* styling svg */
@@ -122,21 +129,10 @@
 	border: none;
 }
 
-/* media queries */
-
-@media (min-width: 768px) {
-	.mainSearchContainer {
-		display: block;
-	}
-}
+// media queries
 
 @media (max-width: 1535px) {
-	.custom-nav-link,
 	.addressImage {
 		display: none;
-	}
-
-	.custom-navbar-container {
-		padding: 16px 20px;
 	}
 }

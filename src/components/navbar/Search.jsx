@@ -1,24 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./navbar.scss";
 
-const Search = ({
-	toggleSearchMenu,
-
-	toggleSearch,
-}) => {
+const Search = () => {
 	return (
 		<div className="mainSearchContainer">
 			{/* Navigation links */}
 			<div className="navLinksContainer">
-				<Link to="/" className="navbarText ">
+				<Link to="/" className="navbarText">
 					People
 				</Link>
 				<span>|</span>
-				<Link to="/" className="navbarText ">
+				<Link to="/" className="navbarText">
 					Profile
 				</Link>
 				<span>|</span>
-				<Link to="/" className="navbarText ">
+				<Link to="/" className="navbarText">
 					Connect
 				</Link>
 				<span>|</span>

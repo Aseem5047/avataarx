@@ -1,0 +1,159 @@
+/* styling the image carousel */
+
+.sliderContainer {
+	display: flex;
+	padding-top: 6rem;
+	flex-direction: column;
+	flex: 1 1 0%;
+	gap: 3rem;
+	align-items: center;
+	width: 100%;
+	overflow: clip;
+}
+
+.imageSlider {
+	display: flex;
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.imageSliderReverse {
+	flex-direction: row-reverse !important;
+}
+
+/* styling individual image */
+
+.sliderImage {
+	object-fit: cover;
+	min-height: 250px;
+	border-radius: 0.75rem;
+	height: 100%;
+	width: 100%;
+	max-height: 275px;
+	cursor: grab;
+
+	@media (min-width: 500px) and (max-width: 1024px) {
+		min-height: 275px;
+	}
+
+	@media (max-width: 500px) {
+		min-height: 200px;
+	}
+}
+
+/* styles to handle image loading */
+
+.imageLoaded {
+	transition-property: all;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 500ms;
+	opacity: 1;
+}
+.imageNotLoaded {
+	opacity: 0 !important;
+}
+
+/* slide states */
+.previous,
+.next,
+.visible,
+.prevPrevious,
+.nextNext,
+.lastSlide,
+.firstSlide {
+	transform: var(--transform, none);
+	transition: all var(--transition-transform-duration, 1000ms) ease;
+}
+
+/* currently visible slide */
+
+.visible {
+	scale: 1.5;
+	z-index: 2;
+	min-width: 35%;
+	height: 100%;
+	transform: translateX(0);
+}
+
+/* previous and next slides */
+
+.previous,
+.next {
+	max-width: 50%;
+	height: 100%;
+	transform-origin: center;
+	scale: 1.25;
+
+	@media (max-width: 1024px) {
+		max-width: 22%;
+	}
+}
+
+.previous {
+	transform: translateX(-7.5%);
+	&:hover {
+		transform: translateX(-5%) scale(1.1);
+	}
+}
+
+.next {
+	transform: translateX(7.5%);
+	&:hover {
+		transform: translateX(5%) scale(1.1);
+	}
+}
+
+/* prevPrevious and nextNext slides */
+
+.prevPrevious,
+.nextNext {
+	width: 30%;
+	height: 100%;
+	z-index: 1;
+
+	@media (max-width: 1368px) {
+		display: none;
+	}
+}
+
+.prevPrevious {
+	transform: translateX(-44%);
+
+	&:hover {
+		transform: rotate3d(1, 2, 3, -4deg);
+	}
+}
+
+.nextNext {
+	transform: translateX(44%);
+
+	&:hover {
+		transform: rotate3d(1, 2, 3, 4deg);
+	}
+}
+
+.hiddenNext {
+	z-index: -1 !important;
+}
+
+/* last and first slide */
+
+.lastSlide,
+.firstSlide {
+	width: 100%;
+	z-index: 1;
+
+	&:hover {
+		scale: 1.1;
+	}
+}
+
+.lastSlide {
+	transform: translateX(-10%);
+}
+
+.firstSlide {
+	transform: translateX(10%);
+}

@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Search from "./Search";
 import Menu from "./menu/Menu";
 import { Link } from "react-router-dom";
-import "./navbar.css";
+import "./navbar.scss";
+import GetRandomImage from "../../utils/GetRandomImage";
 
 const Navbar = () => {
 	// State variables for menu and search toggles, and search text
@@ -10,23 +11,9 @@ const Navbar = () => {
 	const [toggleSearch, setToggleSearch] = useState(false);
 	const [searchText, setSearchText] = useState("");
 
-	// List of image filenames
+	// random profile image
 	let imageList = ["1.png", "2.png", "3.png", "4.png", "5.png"];
-
-	// Check if a random image is already stored in local storage
-	let storedImage = localStorage.getItem("randomImage");
-
-	let randomImage = "";
-
-	// If no image is stored, generate a random index and select an image
-	if (!storedImage) {
-		let randomIndex = Math.floor(Math.random() * imageList.length);
-		randomImage = imageList[randomIndex];
-		localStorage.setItem("randomImage", randomImage);
-	} else {
-		// Use the stored image if available
-		randomImage = storedImage;
-	}
+	let randomImage = GetRandomImage(imageList);
 
 	// Function to toggle the search menu
 	const toggleSearchMenu = () => {
@@ -94,14 +81,14 @@ const Navbar = () => {
 	return (
 		<>
 			{/* Main container for the Navbar */}
-			<div className="custom-navbar-container">
-				<div className="custom-navbar-content">
+			<div className="navbarContainer">
+				<div className="navbarContent">
 					{/* Logo */}
 					<Link to="/" className="custom-logo">
 						<img src="/assets/logo.png" alt="" className="custom-logo-image" />
 					</Link>
 					{/* Navigation links */}
-					<div className="custom-nav-links ">
+					<div className="navLinks">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
@@ -122,7 +109,7 @@ const Navbar = () => {
 							/>
 						</svg>
 
-						<Link to="/" className="custom-nav-link hoverEffectText">
+						<Link to="/" className="navLink hoverEffectText">
 							Address & Location
 						</Link>
 					</div>

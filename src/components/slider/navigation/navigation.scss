@@ -1,0 +1,90 @@
+/* banner button */
+
+.left,
+.right,
+.normalLeft,
+.normalRight {
+	width: 1.5rem;
+	height: 1.5rem;
+	color: #ffffff;
+	border-radius: 9999px;
+
+	&:hover {
+		transform: scale(1.2);
+		cursor: pointer;
+	}
+}
+.left,
+.right {
+	z-index: 3;
+	padding: 0.75rem;
+	margin: 0px 0.5rem;
+	background: rgba(0, 0, 0, 0.623);
+	cursor: pointer;
+	position: absolute;
+
+	@media (max-width: 768px) {
+		padding: 0.5rem;
+	}
+
+	@media (min-width: 1024px) {
+		display: none;
+	}
+}
+
+.left {
+	left: 1rem;
+}
+.right {
+	right: 1rem;
+}
+
+.normalLeft,
+.normalRight {
+	padding: 0.5rem;
+	background: #03a9f4f0;
+	display: block;
+
+	@media (max-width: 768px) {
+		display: none;
+	}
+}
+
+/* navigation dots */
+
+.navigationParentContainer {
+	display: flex;
+	padding: 1rem;
+	gap: 1rem;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-top: 2.5rem;
+}
+
+.navigationDotsContainer {
+	display: flex;
+	overflow-x: scroll;
+	padding: 1rem;
+	gap: 1rem;
+	justify-content: center;
+	align-items: center;
+	width: fit-content;
+	max-width: 75%;
+
+	@media (max-width: 1024px) {
+		justify-content: flex-start;
+	}
+
+	button {
+		padding: 0.25rem 0.5rem;
+		border-radius: 1rem;
+		cursor: pointer;
+		outline: none;
+		border: none;
+
+		&:hover {
+			transform: scale(1.4);
+		}
+	}
+}

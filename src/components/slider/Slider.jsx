@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
-import NavigationDots from "./NavigationDots";
-import NavigationButtons from "./NavigationButtons";
-import Loader from "./Loader";
-import "./slider.css";
+import NavigationDots from "./navigation/NavigationDots";
+import NavigationButtons from "./navigation/NavigationButtons";
+import Loader from "../shared/Loader";
+import "./slider.scss";
+import GetSlideState from "../../utils/GetSlideState";
 
 const Slider = ({ images, loading }) => {
 	// State to track the current index of the active slide
@@ -41,28 +42,20 @@ const Slider = ({ images, loading }) => {
 
 	// Determine the state of each slide based on its position relative to the current index
 	const getSlideState = (adjustedIndex) => {
-		if (adjustedIndex === currentIndex) return "visible";
-		if (adjustedIndex === currentIndex - 1) return "previous";
-		if (adjustedIndex === currentIndex - 2) return "prevPrevious";
-		if (currentIndex === lastIndex && adjustedIndex === 0) return "firstSlide";
-		if (adjustedIndex === currentIndex + 1) return "next";
-		if (adjustedIndex === currentIndex + 2 && currentIndex !== 0)
-			return "nextNext";
-		if (adjustedIndex === currentIndex + 2 && currentIndex === 0)
-			return "nextNext hiddenNext";
-		if (currentIndex === 0 && adjustedIndex === lastIndex) return "lastSlide";
-		return "hidden";
+		return GetSlideState(adjustedIndex, currentIndex, lastIndex);
 	};
 
-	// Event handlers for mouse and touch interactions
-	const handleMouseDown = (e) => {
-		setStartX(e.clientX);
+	// Reusable function for mouse and touch interactions
+	const handleInteractionStart = (e, type) => {
+		const clientX = type === "mouse" ? e.clientX : e.touches[0].clientX;
+		setStartX(clientX);
 		setDragging(true);
 	};
 
-	const handleMouseMove = (e) => {
+	const handleInteractionMove = (e, type) => {
 		if (startX !== null && dragging) {
-			const deltaX = e.clientX - startX;
+			const clientX = type === "mouse" ? e.clientX : e.touches[0].clientX;
+			const deltaX = clientX - startX;
 			if (Math.abs(deltaX) > 50) {
 				const direction = deltaX > 0 ? -1 : 1;
 				setCurrentIndex((prevIndex) => getImageIndex(prevIndex + direction));
@@ -72,34 +65,22 @@ const Slider = ({ images, loading }) => {
 		}
 	};
 
-	const handleMouseUp = () => {
+	const handleInteractionEnd = () => {
 		if (dragging) {
 			setStartX(null);
 			setDragging(false);
 		}
 	};
 
-	// Logic to handle horizontal swipe in small devices
+	// Event handlers for mouse interactions
+	const handleMouseDown = (e) => handleInteractionStart(e, "mouse");
+	const handleMouseMove = (e) => handleInteractionMove(e, "mouse");
+	const handleMouseUp = () => handleInteractionEnd();
 
-	const handleTouchStart = (e) => {
-		setStartX(e.touches[0].clientX);
-	};
-
-	const handleTouchMove = (e) => {
-		if (startX !== null) {
-			const deltaX = e.touches[0].clientX - startX;
-			if (Math.abs(deltaX) > 50) {
-				const direction = deltaX > 0 ? -1 : 1;
-				setCurrentIndex((prevIndex) => getImageIndex(prevIndex + direction));
-				setStartX(null);
-			}
-		}
-	};
-
-	const handleTouchEnd = () => {
-		setStartX(null);
-	};
-
+	// Event handlers for touch interactions
+	const handleTouchStart = (e) => handleInteractionStart(e, "touch");
+	const handleTouchMove = (e) => handleInteractionMove(e, "touch");
+	const handleTouchEnd = () => handleInteractionEnd();
 	// ...
 
 	// Logic to scroll to the currently active banner dot

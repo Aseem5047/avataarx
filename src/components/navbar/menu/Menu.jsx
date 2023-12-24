@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import Options from "./Options";
-import "./menu.css";
 import { GetMenuItems } from "../../../utils/GetMenuItems";
+
+import "./menu.scss";
 
 const Menu = ({ toggleMenu, setToggleMenu, randomImage, downIcon, upIcon }) => {
 	const [toggleMoreMenu, setToggleMoreMenu] = useState(false);

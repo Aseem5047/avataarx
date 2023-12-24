@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "./menu.scss";
 
 const Options = ({
 	randomImage,
@@ -11,10 +12,7 @@ const Options = ({
 	return (
 		<>
 			<ul className="menuOptions" onMouseLeave={() => setToggleMenu(false)}>
-				<li
-					className="alternateUserInfoContainer"
-					style={{ marginBottom: "1rem" }}
-				>
+				<li className="userInfoContainer" style={{ marginBottom: "1rem" }}>
 					<Link to="/" className="userImageContainer">
 						<img
 							src={`/users/${randomImage}`}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./navigation.scss";
 
 const NavigationButtons = ({ direction, onClick }) => {
 	return (

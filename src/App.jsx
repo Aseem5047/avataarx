@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Navbar from "./components/navbar/Navbar";
-import "./index.css"; // Import the generated CSS file
 
 function App() {
 	const [loading, setLoading] = useState(true);
@@ -24,12 +23,12 @@ function App() {
 					/>
 				</div>
 			) : (
-				<div className="custom-app-container">
+				<div className="appContainer">
 					{/* Navbar component for navigation */}
 					<Navbar />
 
 					{/* Main content container with padding and margin settings */}
-					<div className="custom-main-container">
+					<div className="mainContainer">
 						{/* routes for the application */}
 						<Routes>
 							{/* Default route for the home page. */}

@@ -14,6 +14,10 @@
 	gap: 0.5rem;
 	justify-content: center;
 	align-items: center;
+
+	@media (max-width: 768px) {
+		display: none;
+	}
 }
 
 /* navlinks */
@@ -25,26 +29,21 @@
 	justify-content: flex-start;
 	align-items: center;
 	width: 100%;
-}
 
-.alternateUserInfoContainer {
-	display: flex;
-	padding-right: 0.5rem;
-	gap: 1rem;
-	justify-content: flex-start;
-	align-items: center;
-	width: 100%;
+	@media (max-width: 1024px) {
+		display: none;
+	}
 }
 
 .userImageContainer {
 	display: flex;
 	align-items: center;
-}
 
-.userImageContainer:hover {
-	transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
-	cursor: pointer;
-	scale: 1.1;
+	&:hover {
+		transition: transform 300ms cubic-bezier(0.4, 0, 0.2, 1);
+		cursor: pointer;
+		scale: 1.1;
+	}
 }
 
 .userImage {
@@ -61,6 +60,10 @@
 	height: 1.75rem;
 	margin-left: 0.5rem;
 	display: none;
+
+	@media (max-width: 1024px) {
+		display: block;
+	}
 }
 
 .navLinkContainer {
@@ -72,6 +75,17 @@
 	cursor: pointer;
 }
 
+.navLinkSubContainer {
+	display: flex;
+	margin-left: 1rem;
+	gap: 1rem;
+	align-items: center;
+
+	@media (max-width: 1256px) {
+		display: none;
+	}
+}
+
 .navLinkUpper {
 	font-size: 0.8rem /* 14px */;
 	line-height: 1.25rem /* 20px */;
@@ -79,16 +93,9 @@
 }
 
 .navLinkLower {
-	font-size: 0.9rem /* 16px */;
+	font-size: 0.85rem /* 16px */;
 	line-height: 1.5rem /* 24px */;
 	font-weight: bold;
-}
-
-.navLinkSubContainer {
-	display: flex;
-	margin-left: 1rem;
-	gap: 1rem;
-	align-items: center;
 }
 
 /* more menu */
@@ -102,17 +109,21 @@
 	border-radius: 9999px;
 	border: 1px solid #d1d5db;
 	cursor: pointer;
-}
 
-.moreMenu:hover {
-	scale: 1.1;
+	&:hover {
+		scale: 1.1;
+	}
 }
 
 .moreText {
 	display: block;
 	margin-right: 0.5rem;
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 1.5rem;
+
+	@media (max-width: 1024px) {
+		display: none;
+	}
 }
 
 .moreMenuSvg {
@@ -129,22 +140,19 @@
 	position: absolute;
 	right: 0;
 	top: 3rem;
+	width: 11rem;
 	z-index: 4;
-	padding: 1rem;
-	padding-bottom: 0.5rem;
-	padding-top: 1rem;
+	padding: 1rem 1rem 0.5rem 1rem;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	border-radius: 0.5rem;
-	border-width: 1px;
-	border-color: #d1d5db;
+	border: 1px solid #d1d5db;
 	font-weight: 400;
 	color: #000000;
 	background-color: #ffffff;
 	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
 		0 2px 4px -1px rgba(0, 0, 0, 0.06);
-	width: 11rem;
 }
 
 .customMenuItems {
@@ -152,32 +160,4 @@
 	width: 100%;
 	justify-content: space-between;
 	align-items: center;
-}
-
-/* media queries */
-
-@media (max-width: 768px) {
-	.mainMenu {
-		display: none;
-	}
-}
-
-@media (max-width: 1024px) {
-	.moreText {
-		display: none;
-	}
-
-	.userImageMoreMenu {
-		display: block;
-	}
-
-	.userInfoContainer {
-		display: none;
-	}
-}
-
-@media (max-width: 1256px) {
-	.navLinkSubContainer {
-		display: none;
-	}
 }
