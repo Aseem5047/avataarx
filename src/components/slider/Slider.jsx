@@ -31,7 +31,7 @@ const Slider = ({ images, loading }) => {
 	useEffect(() => {
 		const slider = setInterval(() => {
 			setCurrentIndex((prev) => (prev + 1 > lastIndex ? 0 : prev + 1));
-		}, 7500);
+		}, 5000);
 
 		return () => clearInterval(slider);
 	}, [currentIndex, lastIndex]);
